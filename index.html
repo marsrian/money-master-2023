@@ -13,43 +13,46 @@
     </header>
     <main class='w-3/4 mx-auto'>
         <section class='mt-9'>
-            <div class='flex flex-col md:flex-row gap-16'>
+            <div class='flex flex-col gap-16 md:flex-row'>
                 <div class=''>
                     <img class='md:w-[705px] md:h-[815px]' src="images/micheile-dot-com-ZVprbBmT8QA-unsplash (1).jpg" alt="">
                 </div>
                 <div class='text-center bg-[#F8F8F8]'>
-                    <h1 class=' mt-14 mb-7 font-bold'>Income</h1>
+                    <h1 class='font-bold mt-14 mb-7'>Income</h1>
                     <div class='flex flex-row justify-center'>
                         <h3 class='mr-4'>Income:</h3>
-                        <input class='mb-9' type="text" name="" id="">
+                        <input id='income-field' class='mb-9' type="text" name="" id="">
                     </div>
                     <h1 class='font-bold mb-9'>Expenses</h1>
                     <div class='flex flex-row justify-center'>
                         <h3 class='mr-4'>Food:</h3>
-                        <input class='mb-9' type="text" name="" id="">
+                        <input id='food-field' class='mb-9' type="text" name="" id="">
                     </div>
                     <div class='flex flex-row justify-center'>
                         <h3 class='mr-4'>Rent:</h3>
-                        <input class='mb-9' type="text" name="" id="">
+                        <input id='rent-field' class='mb-9' type="text" name="" id="">
                     </div>
                     <div class='flex flex-row justify-center'>
                         <h3 class='mr-4'>Clothes:</h3>
-                        <input class='mb-6' type="text" name="" id="">
+                        <input id='clothes-field' class='mb-6' type="text" name="" id="">
                     </div>
-                    <button class='text-white bg-[#59A5FF] py-3 px-10 font-bold rounded mb-9'>Calculate</button>
-                    <h1 class='font-bold text-3xl mb-8'>Total Expenses: 5500</h1>
-                    <h1 class='font-bold text-3xl mb-8'>Balance: 4500</h1>
+                    <button id='btn-calculate' class='text-white bg-[#59A5FF] py-3 px-10 font-bold rounded mb-9'>Calculate</button>
+                        <h1 class='mb-8 text-3xl font-bold'>Total Expenses: <span id='total-expenses'>00</span></h1>
+                        <h1 class='mb-8 text-3xl font-bold'>Balance: <span id='balance-total'>00</span></h1>
+                        <p id='warning' class='hidden mt-0 mb-4 text-red-700'>Your income amount is very poor</p>
                     <div class='flex flex-col md:flex-row'>
-                        <h1 class='text-lg mr-4'>Save: </h1>
-                        <input class='mx-auto md:mr-4 w-1/2 md:w-24 h-12 text-center' type="text" name="" id="">
-                        <p class='text-xl mr-4'>%</p>
-                        <button class='text-white bg-[#59A5FF] py-3 px-10 font-bold rounded mb-9'>Save</button>
+                        <h1 class='mr-4 text-lg'>Save: </h1>
+                        <input id='save-field' class='w-1/2 h-12 mx-auto text-center md:mr-4 md:w-24' type="text" name="" id="">
+                        <p class='mr-4 text-xl'>%</p>
+                        <button id='btn-save' class='text-white bg-[#59A5FF] py-3 px-10 font-bold rounded mb-9'>Save</button>
                     </div>
-                    <h1 class='text-lg mr-4'>Saving Amount: 2000 </h1>
-                    <h1 class='text-lg mt-4'>Remaining Balance: 2500 </h1>
+                    <h1 class='mr-4 text-lg'>Saving Amount: <span id='saving-amount'>00</span></h1>
+                    <h1 class='mt-4 text-lg'>Remaining Balance: <span id='remaining-balance'>00</span></h1>
                 </div>
             </div>
         </section>
     </main>
+    <!-- money js file -->
+    <script src="js/money.js"></script>
 </body>
 </html>
