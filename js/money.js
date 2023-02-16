@@ -1,83 +1,66 @@
 document.getElementById("btn-calculate").addEventListener("click", function(){
     // income field
-    const incomeField = document.getElementById("income-field");
-    const incomeString = incomeField.value;
-    const income = parseInt(incomeString);
+    const incomeField = getInputFieldValueById("income-field");
     
     // food field
-    const foodField = document.getElementById("food-field");
-    const foodString = foodField.value;
-    const food = parseInt(foodString);
+    const foodField = getInputFieldValueById("food-field");
 
     // rent field
-    const rentField = document.getElementById("rent-field");
-    const rentString = rentField.value;
-    const rent = parseInt(rentString);
+    const rentField = getInputFieldValueById("rent-field");
 
     // clothes field
-    const clothesField = document.getElementById("clothes-field");
-    const clothesString = clothesField.value;
-    const clothes = parseInt(clothesString);
+    const clothesField = getInputFieldValueById("clothes-field");
 
     // previous Expenses
-    const totalExpensesElement = document.getElementById("total-expenses");
-    const previousExpensesString = totalExpensesElement.innerText;
-    const previousExpenses = parseFloat(previousExpensesString);
+    const totalExpensesElement = getTextElementById("total-expenses");
 
     // previous Balance
-    const balanceElement = document.getElementById("balance-total");
-    const previousBalanceString = balanceElement.innerText;
-    const previousBalance = parseFloat(previousBalanceString);
+    const balanceElement = getTextElementById("balance-total");
 
     // Calculation:
-    const newEXpensesTotal = food + rent + clothes;
-    // set new expenses value:
-    totalExpensesElement.innerText = newEXpensesTotal;
+    const newEXpensesTotal = foodField + rentField + clothesField;
+    
 
     // new balance total:
-    const newBalanceTotal = income - newEXpensesTotal;
+    const newBalanceTotal = incomeField - newEXpensesTotal;
 
+    
+
+    // warning:
     const warning = document.getElementById("warning");
 
-    if(newEXpensesTotal > income){
+    if(newEXpensesTotal > incomeField){
         alert("Your income amount is very poor");
         warning.style.display = 'block';
     }else{
         warning.style.display = 'none';
+        // set new expenses value:
+        setTextElementById("total-expenses", newEXpensesTotal);
         // set new balance total:
-        balanceElement.innerText = newBalanceTotal;
+        setTextElementById("balance-total", newBalanceTotal);
     }
-
 })
 
 document.getElementById("btn-save").addEventListener("click", function(){
     // saveMoneyField
-    const saveMoneyField = document.getElementById("save-field");
-    const saveMoneyPercentString = saveMoneyField.value;
-    const saveMoneyPercent = parseFloat(saveMoneyPercentString);
+    const saveMoneyField = getInputFieldValueById("save-field");
     
     // savingAmountElement
-    const savingAmountElement = document.getElementById("saving-amount");
-    const previousSavingAmountString = savingAmountElement.innerText;
-    const previousSavingAmount = parseFloat(previousSavingAmountString);
+    const savingAmountElement = getTextElementById("saving-amount");
 
     // remainingBalanceElement
-    const remainingBalanceElement = document.getElementById("remaining-balance");
-    const previousRemainingBalanceString = remainingBalanceElement.innerText;
-    const previousRemainingBalance = parseFloat(previousRemainingBalanceString);
+    const remainingBalanceElement = getTextElementById("remaining-balance")
 
     // balance
-    const balanceElement = document.getElementById("balance-total");
-    const previousBalanceString = balanceElement.innerText;
-    const previousBalance = parseFloat(previousBalanceString);
+    const balanceElement = getTextElementById("balance-total");
 
     // Calculate Saving Amount:
-    const newSavingAmount = (previousBalance / 100) * saveMoneyPercent;
+    const newSavingAmount = (balanceElement / 100) * saveMoneyField;
     // set SAving Amount:
-    savingAmountElement.innerText = newSavingAmount;
+    setTextElementById("saving-amount", newSavingAmount);
 
     // Calculate Remaining Balance:
-    const newRemainingBalance = previousBalance - newSavingAmount;
+    const newRemainingBalance = balanceElement - newSavingAmount;
     // set Remaining Balance:
-    remainingBalanceElement.innerText = newRemainingBalance
+    setTextElementById("remaining-balance", newRemainingBalance);
 })
